@@ -10,6 +10,7 @@ namespace API_Core.Controllers
     {
         // GET: api/<TestAPI>
         [HttpGet]
+        [Route("get-all-student")]
         public IEnumerable<Student> Get()
         {
             return new List<Student>()
@@ -18,7 +19,9 @@ namespace API_Core.Controllers
                 new Student{Id=Guid.NewGuid(),Name="Mạnh"},
                 new Student{Id=Guid.NewGuid(),Name="Tiến"},
                 new Student{Id=Guid.NewGuid(),Name="Tuấn Anh"},
-                new Student{Id=Guid.NewGuid(),Name="Phong"}
+                new Student{Id=Guid.NewGuid(),Name="Phong"},
+                new Student{Id=Guid.NewGuid(),Name="A bê xê"},
+                new Student{Id=Guid.NewGuid(),Name="Ích i zét"}
             };
         }
 

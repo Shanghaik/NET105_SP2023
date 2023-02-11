@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API_Core.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using ProjectViews.Models;
+using ProjectViews.Services;
 using System.Diagnostics;
 
 namespace ProjectViews.Controllers
@@ -7,15 +9,15 @@ namespace ProjectViews.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        TServices services = new TServices();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await services.GetAll<Student>("https://localhost:7167/api/TestAPI/get-all-student"));
         }
 
         public IActionResult Privacy()
